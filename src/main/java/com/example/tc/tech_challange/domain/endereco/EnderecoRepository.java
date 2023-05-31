@@ -9,6 +9,5 @@ import java.util.List;
 
 public interface EnderecoRepository extends JpaRepository<Endereco, Long> {
     Endereco getReferenceById(PathVariable id);
-
     Page<Endereco> findAll(Pageable paginacao);
 }

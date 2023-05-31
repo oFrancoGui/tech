@@ -1,27 +1,22 @@
 package com.example.tc.tech_challange.domain.endereco;
 
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.NotNull;
+
 
 public record DadosCadastroEndereco(
-        @NotBlank
-        int id,
-        @NotBlank @NotEmpty
+        @NotNull(message = "Cep cannot be null")
         int cep,
-        @NotBlank
+        @NotNull(message = "rua cannot be null")
         String rua,
-        @NotBlank
+        @NotNull(message = "numero cannot be null")
         int numero,
-        @NotBlank
+        @NotNull(message = "compl cannot be null")
         String compl,
-        @NotBlank
+        @NotNull(message = "bairro cannot be null")
         String bairro,
-        @NotBlank
-
+        @NotNull(message = "cidade cannot be null")
         String cidade,
-        @NotBlank
+        @NotNull(message = "estado cannot be null")
         String estado
-        )
-
-
-{ }
+        ) { }

@@ -10,13 +10,12 @@ import lombok.NoArgsConstructor;
 @Entity(name = "Endereco")
 @NoArgsConstructor
 @AllArgsConstructor
-
-
 @Getter
+@EqualsAndHashCode(of = "id")
 public class Endereco {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private int id;
+        private Long id;
         private int cep ;
         private String rua;
         private int numero;
@@ -26,7 +25,6 @@ public class Endereco {
         private String estado;
 
         public Endereco(DadosCadastroEndereco dados){
-            this.id = dados.id();
             this.cep = dados.cep();
             this.rua = dados.rua();
             this.numero = dados.numero();
@@ -35,6 +33,4 @@ public class Endereco {
             this.cidade = dados.cidade();
             this.estado = dados.estado();
         }
-
-
 }
