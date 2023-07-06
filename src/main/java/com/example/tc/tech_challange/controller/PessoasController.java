@@ -40,7 +40,7 @@ public class PessoasController {
     }
     @GetMapping("/{id}")
     @Transactional
-    public ResponseEntity detalhar(@PathVariable Long id){
+    public ResponseEntity detalhar(@PathVariable Integer id){
         var pessoas = repository.getReferenceById(id);
         return ResponseEntity.ok(new DadosDetalhamentoPessoas(pessoas));
     }
