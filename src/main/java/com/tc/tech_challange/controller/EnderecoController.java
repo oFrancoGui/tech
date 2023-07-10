@@ -17,7 +17,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 public class EnderecoController {
     @Autowired
     private EnderecoRepository repository;
-    @PostMapping
+    @PostMapping("api/v2/endereco")
     @Transactional
     public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroEndereco dados, UriComponentsBuilder uriBuilder) {
         var endereco = new Endereco(dados);
