@@ -1,5 +1,6 @@
 package com.tc.tech_challange.domain.usuario;
 
+import com.tc.tech_challange.domain.pessoas.Pessoas;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -28,6 +29,9 @@ public class Usuario implements UserDetails {
     private String login;
     @Column(name="senha")
     private String senha;
+
+    @OneToMany(mappedBy = "usuario")
+    private List<Pessoas> pessoa;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

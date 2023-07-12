@@ -29,13 +29,13 @@ public class EletroController<uriBuilder> {
             response.put("message", "Eletronico ja registrdo");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response.toString());
         }
-        else {
-            var eletro = new Eletro(dados);
-            repository.save(eletro);
-            var uri = uriBuilder.path("/eletro/{id}").buildAndExpand(eletro.getId()).toUri();
-            response.put("message", "Usuario registrdo com sucesso");
-            return ResponseEntity.status(HttpStatus.OK).body(response.toString());
-        }
+
+        var eletro = new Eletro(dados);
+        repository.save(eletro);
+        var uri = uriBuilder.path("/eletro/{id}").buildAndExpand(eletro.getId()).toUri();
+        response.put("message", "Usuario registrdo com sucesso");
+        return ResponseEntity.status(HttpStatus.OK).body(response.toString());
+
 
     }
     @GetMapping("/{id}")

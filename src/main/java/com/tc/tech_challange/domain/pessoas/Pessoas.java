@@ -1,5 +1,6 @@
 package com.tc.tech_challange.domain.pessoas;
 
+import com.tc.tech_challange.domain.usuario.Usuario;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -36,6 +37,10 @@ public class Pessoas {
     @Enumerated(EnumType.STRING)
     @Column(name="genero")
     private Genero genero;
+
+    @ManyToOne
+    @JoinColumn(name = "usuario_id", nullable = true)
+    Usuario usuario;
 
     public Pessoas (DadosCadastroPessoa dados){
         this.cpf = dados.cpf();
